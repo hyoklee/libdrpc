@@ -90,8 +90,10 @@ typedef int32_t  int32;
 typedef int16_t  int16;
 typedef int8_t   int8;
 typedef int32_t  enum_t;
-typedef int64_t  quad_t;
-typedef uint64_t u_quad_t;
+// typedef int64_t  quad_t;
+typedef long long quad_t;
+// typedef uint64_t u_quad_t;
+typedef unsigned long long u_quad_t;
 //typedef uint16_t u_short; /* defined in kernel_headers */
 #define TRUE 1
 #define FALSE 0

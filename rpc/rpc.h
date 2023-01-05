@@ -41,7 +41,7 @@
 extern "C" {
 #endif
 
-/* #include <rpc/types.h> */
+#include <rpc/types.h>
 #include <rpc/xdr.h>
 #include <rpc/clnt.h>
 #include <rpc/svc.h>
