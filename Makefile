@@ -1,6 +1,6 @@
 .POSIX:
 
-CC=musl-gcc
+CC=/home/runner/work/hdf4/hdf4/aarch64-linux-musl-cross/bin/aarch64-linux-musl-gcc
 CFLAGS+=-D_BSD_SOURCE -D_XOPEN_SOURCE=600 -I. -I./rpc -DRPC_OFFSET=0 -fno-stack-protector
 OBJS=clnt.o ops.o rpc.o svc_clnt_common.o svc.o xdr.o 		\
 	pmap_prot.o pmap_prot2.o
@@ -23,14 +23,14 @@ insthdr:
 inst-static: libdrpc.a
 	[ -d ${DESTDIR}${LIBDIR}/ ] || mkdir -p ${DESTDIR}${LIBDIR}/
 	cp libdrpc.a ${DESTDIR}${LIBDIR}/
-	
+
 inst-sh: libdrpc.so
 	[ -d ${DESTDIR}${SYSLIBDIR}/ ] || mkdir -p ${DESTDIR}${SYSLIBDIR}/
 	cp -P libdrpc.so* ${DESTDIR}${SYSLIBDIR}/
-	
+
 libdrpc.a: ${OBJS}
 	ar rc  $@ ${OBJS}
-	
+
 .c.o:
 	${CC} ${CFLAGS} -c $<
 
